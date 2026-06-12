@@ -1,44 +1,107 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 
 export default function Navbar() {
-  return (
-    <header className="sticky top-0 z-50 w-full">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12 xl:px-16">
-        
-        {/* Logo */}
-        <Link
-          href="/"
-          className="text-xl font-bold tracking-tight text-primary hover:text-primary"
-        >
-          Amit
-        </Link>
+const [isOpen, setIsOpen] = useState(false);
 
-        {/* Navigation */}
-        <nav className="flex items-center gap-6 text-sm font-medium sm:gap-8 max-sm:hidden ">
-          <Link
-            href="#about"
-            className="transition-colors duration-300 hover:text-primary"
-          >
-            About
-          </Link>
+return ( <header className="sticky top-0 z-50 w-full max-sm:bg-background/80 backdrop-blur-md"> <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12 xl:px-16">
 
-          <Link
-            href="#projects"
-            className="transition-colors duration-300 hover:text-primary"
-          >
-            Projects
-          </Link>
+    {/* Logo */}
+    <Link
+      href="/"
+      className="text-xl font-bold tracking-tight text-primary"
+    >
+      Amit
+    </Link>
 
-          <Link
-            href="#contact"
-            className="transition-colors duration-300 hover:text-primary"
-          >
-            Contact
-          </Link>
+    {/* Desktop Navigation */}
+    <nav className="hidden items-center gap-8 text-sm font-medium sm:flex">
+      <Link
+        href="#about"
+        className="transition-colors duration-300 hover:text-primary"
+      >
+        About
+      </Link>
 
-          {/* Theme Toggle Coming Soon */}
-        </nav>
-      </div>
-    </header>
-  );
+      <Link
+        href="#projects"
+        className="transition-colors duration-300 hover:text-primary"
+      >
+        Projects
+      </Link>
+
+      <Link
+        href="#contact"
+        className="transition-colors duration-300 hover:text-primary"
+      >
+        Contact
+      </Link>
+      <AnimatedThemeToggler className="cursor-pointer transition-colors duration-300 hover:text-yellow-400"/>
+    </nav>
+
+    {/* Mobile Menu Button */}
+    <button
+      onClick={() => setIsOpen(!isOpen)}
+      className="flex cursor-pointer flex-col justify-center gap-1.5 sm:hidden"
+      aria-label="Toggle Menu"
+    >
+      <span
+        className={`h-0.5 w-6 bg-current transition-all duration-300 ${
+          isOpen ? "translate-y-2 rotate-45" : ""
+        }`}
+      />
+
+      <span
+        className={`h-0.5 w-6 bg-current transition-all duration-300 ${
+          isOpen ? "opacity-0" : ""
+        }`}
+      />
+
+      <span
+        className={`h-0.5 w-6 bg-current transition-all duration-300 ${
+          isOpen ? "-translate-y-2 -rotate-45" : ""
+        }`}
+      />
+    </button>
+  </div>
+
+  {/* Mobile Menu */}
+  <nav
+    className={`overflow-hidden bg-background transition-all duration-300 sm:hidden ${
+      isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+    }`}
+  >
+    <div className="flex flex-col gap-6 px-6 py-6 text-sm font-medium">
+      <Link
+        href="#about"
+        onClick={() => setIsOpen(false)}
+        className="transition-colors duration-300 hover:text-primary"
+      >
+        About
+      </Link>
+
+      <Link
+        href="#projects"
+        onClick={() => setIsOpen(false)}
+        className="transition-colors duration-300 hover:text-primary"
+      >
+        Projects
+      </Link>
+
+      <Link
+        href="#contact"
+        onClick={() => setIsOpen(false)}
+        className="transition-colors duration-300 hover:text-primary"
+      >
+        Contact
+      </Link>
+      <AnimatedThemeToggler className="cursor-pointer transition-colors duration-300 hover:text-yellow-400"/>
+    </div>
+  </nav>
+</header>
+
+);
 }
