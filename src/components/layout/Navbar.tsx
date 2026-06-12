@@ -8,13 +8,13 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-xl font-bold tracking-tight text-primary"
+          className="text-xl font-bold tracking-tight text-primary hover:text-primary"
         >
           Amit
         </Link>
 
         {/* Navigation */}
-        <nav className="flex items-center gap-6 text-sm font-medium sm:gap-8">
+        <nav className="flex items-center gap-6 text-sm font-medium sm:gap-8 max-sm:hidden ">
           <Link
             href="#about"
             className="transition-colors duration-300 hover:text-primary"
