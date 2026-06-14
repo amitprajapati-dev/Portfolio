@@ -23,8 +23,7 @@
 
   --text: #0f0a2e;
   --muted: oklch(0.97 0 0);
-
-  --primary: oklch(0.205 0 0);
+  --primary: #7c3aed;
   --primary-dark: #6d28d9;
 
   --border: oklch(0.922 0 0);
@@ -214,4 +213,14 @@ body {
   html {
     @apply font-sans;
   }
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
