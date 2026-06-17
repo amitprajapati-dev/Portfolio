@@ -23,7 +23,7 @@ export default function About() {
 
 
           <div className="relative w-full px-0 lg:px-5">
-            <div className="absolute top-20 left-0 h-72 w-72 rounded-full bg-primary opacity-40 blur-3xl" />
+            <div className="absolute top-20 -left-30 h-72 w-72 rounded-full bg-primary opacity-40 blur-3xl" />
             <h2 className="mb-5 text-3xl font-bold leading-tight sm:text-4xl lg:text-4xl">
               Building Modern
               <span className="text-primary">
