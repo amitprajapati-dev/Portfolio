@@ -7,100 +7,110 @@ import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 export default function Navbar() {
 const [isOpen, setIsOpen] = useState(false);
 
-return ( <header className="sticky top-0 z-50 w-full max-sm:bg-background/80 backdrop-blur-md"> <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12 xl:px-16">
-
-    {/* Logo */}
-    <Link
-      href="/"
-      className="text-xl font-bold tracking-tight text-primary"
-    >
-      Amit
-    </Link>
+return (
+  <header className="z-10 w-full bg-background uppercase">
+    <div className="fixed top-0 z-50 dark:bg-white bg-black w-full h-7"></div>
+    <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12 xl:px-16 mt-7">
 
     {/* Desktop Navigation */}
-    <nav className="hidden items-center gap-8 text-sm font-medium sm:flex">
-      <Link
-        href="#about"
-        className="transition-colors duration-300 hover:text-primary"
+      <nav className="hidden items-center gap-8 text-sm font-bold sm:flex justify-between w-full">
+        <Link
+          href="#about"
+          className="transition-colors duration-300 hover:text-primary cursor-pointer"
+        >
+          About
+        </Link>
+
+        <Link
+          href="#skills"
+          className="transition-colors duration-300 hover:text-primary cursor-pointer"
+        >
+          Skills
+        </Link>
+
+        <Link
+          href="#projects"
+          className="transition-colors duration-300 hover:text-primary cursor-pointer"
+        >
+          Projects
+        </Link>
+
+        <Link
+          href="#contact"
+          className="transition-colors duration-300 hover:text-primary cursor-pointer"
+        >
+          Contact
+        </Link>
+        <AnimatedThemeToggler className="cursor-pointer transition-colors duration-300 hover:text-yellow-400"/>
+      </nav>
+
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex cursor-pointer flex-col justify-center gap-1.5 sm:hidden"
+        aria-label="Toggle Menu"
       >
-        About
-      </Link>
+        <span
+          className={`h-0.5 w-6 bg-current transition-all duration-300 ${
+            isOpen ? "translate-y-2 rotate-45" : ""
+          }`}
+        />
 
-      <Link
-        href="#projects"
-        className="transition-colors duration-300 hover:text-primary"
-      >
-        Projects
-      </Link>
+        <span
+          className={`h-0.5 w-6 bg-current transition-all duration-300 ${
+            isOpen ? "opacity-0" : ""
+          }`}
+        />
 
-      <Link
-        href="#contact"
-        className="transition-colors duration-300 hover:text-primary"
-      >
-        Contact
-      </Link>
-      <AnimatedThemeToggler className="cursor-pointer transition-colors duration-300 hover:text-yellow-400"/>
-    </nav>
-
-    {/* Mobile Menu Button */}
-    <button
-      onClick={() => setIsOpen(!isOpen)}
-      className="flex cursor-pointer flex-col justify-center gap-1.5 sm:hidden"
-      aria-label="Toggle Menu"
-    >
-      <span
-        className={`h-0.5 w-6 bg-current transition-all duration-300 ${
-          isOpen ? "translate-y-2 rotate-45" : ""
-        }`}
-      />
-
-      <span
-        className={`h-0.5 w-6 bg-current transition-all duration-300 ${
-          isOpen ? "opacity-0" : ""
-        }`}
-      />
-
-      <span
-        className={`h-0.5 w-6 bg-current transition-all duration-300 ${
-          isOpen ? "-translate-y-2 -rotate-45" : ""
-        }`}
-      />
-    </button>
-  </div>
-
-  {/* Mobile Menu */}
-  <nav
-    className={`overflow-hidden bg-background transition-all duration-300 sm:hidden ${
-      isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
-    }`}
-  >
-    <div className="flex flex-col gap-6 px-6 py-6 text-sm font-medium">
-      <Link
-        href="#about"
-        onClick={() => setIsOpen(false)}
-        className="transition-colors duration-300 hover:text-primary"
-      >
-        About
-      </Link>
-
-      <Link
-        href="#projects"
-        onClick={() => setIsOpen(false)}
-        className="transition-colors duration-300 hover:text-primary"
-      >
-        Projects
-      </Link>
-
-      <Link
-        href="#contact"
-        onClick={() => setIsOpen(false)}
-        className="transition-colors duration-300 hover:text-primary"
-      >
-        Contact
-      </Link>
-      <AnimatedThemeToggler className="cursor-pointer transition-colors duration-300 hover:text-yellow-400"/>
+        <span
+          className={`h-0.5 w-6 bg-current transition-all duration-300 ${
+            isOpen ? "-translate-y-2 -rotate-45" : ""
+          }`}
+        />
+      </button>
     </div>
-  </nav>
+
+    {/* Mobile Menu */}
+    <nav className={`overflow-hidden bg-background transition-all duration-300 sm:hidden ${
+        isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
+      >
+
+      <div className="flex flex-col gap-6 px-6 py-6 text-sm font-bold">
+        <Link
+          href="#about"
+          onClick={() => setIsOpen(false)}
+          className="transition-colors duration-300 hover:text-primary"
+        >
+          About
+        </Link>
+
+        <Link
+          href="#about"
+          onClick={() => setIsOpen(false)}
+          className="transition-colors duration-300 hover:text-primary"
+        >
+          Skills
+        </Link>
+
+        <Link
+          href="#projects"
+          onClick={() => setIsOpen(false)}
+          className="transition-colors duration-300 hover:text-primary"
+        >
+          Projects
+        </Link>
+
+        <Link
+          href="#contact"
+          onClick={() => setIsOpen(false)}
+          className="transition-colors duration-300 hover:text-primary"
+        >
+          Contact
+        </Link>
+        <AnimatedThemeToggler className="cursor-pointer w-fit transition-colors duration-300 hover:text-yellow-400"/>
+      </div>
+
+    </nav>
 </header>
 
 );
