@@ -3,43 +3,68 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
+import { ScrollProgress } from "@/components/ui/scroll-progress"
+import AnimatedLink from "@/components/ui/animated-link";
+import CurrentTime from "@/components/ui/current-time";
+
+
 
 export default function Navbar() {
 const [isOpen, setIsOpen] = useState(false);
 
 return (
   <header className="z-10 w-full bg-background uppercase">
-    <div className="fixed top-0 z-50 dark:bg-white bg-black w-full h-7"></div>
-    <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12 xl:px-16 mt-7">
-
+    <div className="fixed top-0 z-50 dark:bg-white bg-black w-full h-7 text-white dark:text-black text-xs flex justify-center items-center"><CurrentTime /></div>
+    <div className="relative mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12 xl:px-16 mt-7">
+    <ScrollProgress className="top-[0px]"/>
     {/* Desktop Navigation */}
       <nav className="hidden items-center gap-8 text-sm font-bold sm:flex justify-between w-full">
         <Link
           href="#about"
           className="transition-colors duration-300 hover:text-primary cursor-pointer"
         >
-          About
+          <AnimatedLink
+            text="ABOUT"
+            hoverText="ABOUT"
+            direction="up"
+            className="cursor-pointer font-semibold px-5 h-10"
+          />
         </Link>
 
         <Link
           href="#skills"
           className="transition-colors duration-300 hover:text-primary cursor-pointer"
         >
-          Skills
+          <AnimatedLink
+              text="SKILLS"
+              hoverText="SKILLS"
+              direction="up"
+              className="cursor-pointer font-semibold px-5 h-10"
+            />
         </Link>
 
         <Link
           href="#projects"
           className="transition-colors duration-300 hover:text-primary cursor-pointer"
         >
-          Projects
+          <AnimatedLink
+            text="PROJECTS"
+            hoverText="PROJECTS"
+            direction="up"
+            className="cursor-pointer font-semibold px-5 h-10"
+          />
         </Link>
 
         <Link
           href="#contact"
           className="transition-colors duration-300 hover:text-primary cursor-pointer"
         >
-          Contact
+          <AnimatedLink
+            text="CONTACT"
+            hoverText="CONTACT"
+            direction="up"
+            className="cursor-pointer font-semibold px-5 h-10"
+          />
         </Link>
         <AnimatedThemeToggler className="cursor-pointer transition-colors duration-300 hover:text-yellow-400"/>
       </nav>
