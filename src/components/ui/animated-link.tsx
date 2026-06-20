@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
-
 interface AnimatedLinkProps {
   text: string;
   hoverText: string;
@@ -18,28 +16,6 @@ export default function AnimatedLink({
   const isVertical =
     direction === "up" || direction === "down";
 
-  const variants = {
-    up: {
-      initial: { y: "0%" },
-      hover: { y: "-50%" },
-    },
-
-    down: {
-      initial: { y: "-50%" },
-      hover: { y: "0%" },
-    },
-
-    left: {
-      initial: { x: "-50%" },
-      hover: { x: "0%" },
-    },
-
-    right: {
-      initial: { x: "0%" },
-      hover: { x: "-50%" },
-    },
-  };
-
   const firstText =
     direction === "down" || direction === "left"
       ? hoverText
@@ -50,29 +26,36 @@ export default function AnimatedLink({
       ? text
       : hoverText;
 
+  const translateClass = {
+    up: "group-hover:-translate-y-1/2",
+    down: "group-hover:translate-y-1/2",
+    left: "group-hover:translate-x-1/2",
+    right: "group-hover:-translate-x-1/2",
+  };
+
+  const initialClass = {
+    up: "translate-y-0",
+    down: "-translate-y-1/2",
+    left: "-translate-x-1/2",
+    right: "translate-x-0",
+  };
+
   return (
-    <motion.button
-      initial="initial"
-      whileHover="hover"
-      className={`relative overflow-hidden ${className}`}
+    <button
+      className={`group relative overflow-hidden ${className}`}
     >
-      <motion.div
-        variants={variants[direction]}
-        transition={{
-          duration: 0.35,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className={
-          isVertical
-            ? "h-[200%]"
-            : "w-[200%] flex"
-        }
+      <div
+        className={`
+          ${isVertical ? "h-[200%]" : "w-[200%] flex"}
+          ${initialClass[direction]}
+          ${translateClass[direction]}
+          transition-transform duration-300 ease-out
+        `}
       >
         <div
           className="
             flex items-center justify-center
-            w-full h-1/2
-            shrink-0
+            w-full h-1/2 shrink-0
           "
         >
           {firstText}
@@ -81,13 +64,12 @@ export default function AnimatedLink({
         <div
           className="
             flex items-center justify-center
-            w-full h-1/2
-            shrink-0
+            w-full h-1/2 shrink-0
           "
         >
           {secondText}
         </div>
-      </motion.div>
-    </motion.button>
+      </div>
+    </button>
   );
 }
