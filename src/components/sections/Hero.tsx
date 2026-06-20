@@ -56,7 +56,7 @@ export default function Hero() {
           
           <div className="flex gap-5">
             <a
-              href=""
+              href="/myresume.pdf"
               download="Amit_Prajapati_Resume.pdf"
               className="group mt-8 flex items-center gap-3 rounded border border-blue-500/50 bg-white/5 px-8 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-blue-400/70 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(59,130,246,0.25)]"
             >
