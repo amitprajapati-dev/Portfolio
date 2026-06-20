@@ -1,159 +1,169 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion } from "motion/react";
-import { GlareHover } from "@/components/ui/glare-hover";
-import { BorderBeam } from "@/components/ui/border-beam";
-import AnimatedLink from "@/components/ui/animated-link";
-import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
-import { AnimatedSpan, Terminal, TypingAnimation } from "@/components/ui/terminal";
-import { FaGreaterThan } from "react-icons/fa6";
-import Image from "next/image";
-
-function FitText({ text, className }: { text: string; className?: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    const fit = () => {
-      const container = containerRef.current;
-      const text = textRef.current;
-      if (!container || !text) return;
-
-      text.style.fontSize = "100px";
-
-      const containerWidth = container.getBoundingClientRect().width;
-      const textWidth = text.getBoundingClientRect().width;
-      const ratio = containerWidth / textWidth;
-
-      text.style.fontSize = `${100 * ratio}px`;
-    };
-
-    fit();
-
-    const ro = new ResizeObserver(fit);
-    if (containerRef.current) ro.observe(containerRef.current);
-
-    return () => ro.disconnect();
-  }, []);
-
-  return (
-    <div ref={containerRef} className="w-full overflow-hidden">
-      <h1
-        ref={textRef}
-        className={className}
-        style={{ display: "block", width: "max-content", lineHeight: 0.75 }}
-      >
-        {text}
-      </h1>
-    </div>
-  );
-}
+import { FaGithub } from "react-icons/fa"
+import { FaLinkedin } from "react-icons/fa"
+import { FaTwitter } from "react-icons/fa"
+import { FaWhatsapp } from "react-icons/fa"
+import { SiGmail } from "react-icons/si"
+import { SiLeetcode } from "react-icons/si";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen px-4 sm:px-6 ">
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Video Background */}
+      <video
+        src="/videos/background-video.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      />
 
-      <div className="relative max-w-7xl mx-auto">
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
 
-        {/* Big Heading — FitText handles exact full width */}
-        <FitText
-          text="HI, I'M AMIT"
-          className="whitespace-nowrap font-extrabold text-zinc-300"
-        />
+      {/* Hero Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
+        <div className="flex flex-col items-center">
+          {/* "HI, I'M" */}
+          <p className="mb-2 text-md font-light tracking-[0.3em] text-white/80 uppercase">
+            HI, I'M
+          </p>
+          {/* Thin Blue Accent Line */}
+          <div className="mb-4 h-[2px] w-10 bg-blue-500" />
 
-        {/* Content */}
-        <div className="relative flex flex-col md:flex-row mt-8 md:mt-15 gap-8 md:gap-0 md:justify-between">
+          {/* Main Name */}
+          <h1 className="text-5xl font-black tracking-[0.05em] text-white md:text-7xl lg:text-7.5xl xl:text-8xl">
+            AMIT PRAJAPATI
+          </h1>
 
-          <div className="w-full md:w-1/3 uppercase">
-            <Terminal className="relative">
-              <p className="flex items-center">
-                <FaGreaterThan size={10} /><TypingAnimation> Hi, I'm Amit</TypingAnimation>
-              </p>
-
-              <TypingAnimation className="text-green-500">  A passionate Full Stack Developer </TypingAnimation>
-              <AnimatedSpan className="px-4 text-green-500">focused on building fast, modern and </AnimatedSpan>
-              <AnimatedSpan className="px-4 text-green-500">user-friendly web applications.</AnimatedSpan>
-
-              <p className="flex items-center mt-5">
-                <FaGreaterThan size={10} /><TypingAnimation delay={0}> career-goal</TypingAnimation>
-              </p>
-
-              <AnimatedSpan className="px-4 text-blue-500">✔ Current: Full Stack Developer</AnimatedSpan>
-              <AnimatedSpan className="px-4 text-blue-500">Future: Software Engineer</AnimatedSpan>
-              <AnimatedSpan className="px-4 text-blue-500">Target: Building products used by millions</AnimatedSpan>
-
-              <p className="flex items-center mt-5">
-                <FaGreaterThan size={10} /><TypingAnimation> status</TypingAnimation>
-              </p>
-
-              <AnimatedSpan className="px-4">✔ Learning...</AnimatedSpan>
-              <AnimatedSpan className="px-4">✔ Building...</AnimatedSpan>
-              <AnimatedSpan className="px-4">✔ Improving...</AnimatedSpan>
-
-              <BorderBeam
-                size={40}
-                initialOffset={20}
-                className="from-transparent dark:via-white via-black to-transparent"
-                transition={{
-                  type: "spring",
-                  stiffness: 60,
-                  damping: 20,
-                }}
-              />
-            </Terminal>
+          {/* Role Section with Blue Dots */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-medium tracking-wider text-white/90 md:text-base">
+            <span>FULL STACK DEVELOPER</span>
+            <span className="text-blue-400">•</span>
+            <span>SOFTWARE ENGINEER IN PROGRESS</span>
+            <span className="text-blue-400">•</span>
+            <span>PROBLEM SOLVER</span>
           </div>
 
-          <div className="w-full md:w-1/3 lg:pl-20 pl-5">
-            <p>
-              <TypingAnimation
-                className="uppercase text-sm sm:text-base md:text-xl lg:text-2xl leading-relaxed md:leading-10"
+          {/* Description */}
+          <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-white/70 md:text-base">
+            Passionate about crafting modern web applications, solving real-world problems and continuously learning new technologies.
+          </p>
+
+          {/* Download CV Button */}
+          
+          <div className="flex gap-5">
+            <a
+              href=""
+              download="Amit_Prajapati_Resume.pdf"
+              className="group mt-8 flex items-center gap-3 rounded border border-blue-500/50 bg-white/5 px-8 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-blue-400/70 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(59,130,246,0.25)]"
+            >
+              DOWNLOAD CV
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-blue-400 transition-transform duration-300 group-hover:translate-y-0.5"
               >
-                A FULL STACK DEVELOPER PASSIONATE ABOUT
-                CREATING MODERN WEB EXPERIENCES
-              </TypingAnimation>
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            </a>
+
+            <a
+              href="#contact"
+              className="group mt-8 flex items-center gap-3 rounded border border-blue-500/50 bg-white/5 px-8 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-blue-400/70 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(59,130,246,0.25)]"
+            >
+              CONTACT ME
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-blue-400 transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+          {/* Social Section - only "LET'S CONNECT" text, no icons */}
+          <div className="mt-12">
+            <p className="text-xs font-light tracking-[0.2em] text-white/60 uppercase">
+              OPEN TO OPPORTUNITIES
             </p>
-
-            <div className="pt-5">
-              <AnimatedLink
-                text="RESUME"
-                hoverText="DOWNLOAD CV"
-                direction="up"
-                className="bg-white h-10 cursor-pointer px-4 text-black font-semibold"
-              />
-            </div>
           </div>
 
-          <div className="w-full md:w-1/3 flex justify-center md:justify-end">
-            <CardContainer className="py-0 border">
-              <CardBody
-                className="w-full max-w-[300px] aspect-[3/4] md:max-w-none md:w-[300px] md:aspect-auto md:h-[400px]"
-              >
-                <CardItem
-                  translateZ={80}
-                  className="w-full h-full"
-                >
-                  <GlareHover className="relative w-full h-full overflow-hidden border border-white/10">
+          {/* social links */}
+          <div className="pt-10 flex gap-6 text-2xl text-white/80">
+            <a
+              href="https://github.com/amit4353"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+            >
+              <FaGithub />
+            </a>
 
-                    <Image
-                      src="/images/amit.jpeg"
-                      alt="Amit"
-                      width={320}
-                      height={400}
-                      priority
-                      className="w-full h-full object-cover"
-                    />
+            <a
+              href="https://www.linkedin.com/in/amit-prajapati-189256330"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+            >
+              <FaLinkedin />
+            </a>
+ 
+            <a
+              href="https://leetcode.com/u/amitprajapati012/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+            >
+              <SiLeetcode />
+            </a>
 
-                    <BorderBeam
-                      duration={8}
-                      size={100}
-                    />
-                  </GlareHover>
-                </CardItem>
-              </CardBody>
-            </CardContainer>
+            <a
+              href="https://wa.me/918368619855"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+            >
+              <FaWhatsapp />
+            </a>
+
+            <a
+              href="mailto:amitprajapati4353@gmail.com"
+              className="transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+            >
+              <SiGmail />
+            </a>
           </div>
+          
 
+        </div>
+      </div>
+
+      {/* Scroll Indicator with CSS animation */}
+      <div className="absolute bottom-[clamp(5rem,8vw,7.5rem)] left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="flex h-10 w-5 items-start justify-center rounded-full border-2 border-white/30">
+          <div className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-400" />
         </div>
       </div>
     </section>
