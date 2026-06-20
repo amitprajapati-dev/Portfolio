@@ -1,7 +1,6 @@
-export default function Footer(){
-    return (
-        <>
-            Footer
-        </>
-    )
+export default function Hero() {
+  return (
+    <section className="min-h-screen">
+    </section>
+  );
 }

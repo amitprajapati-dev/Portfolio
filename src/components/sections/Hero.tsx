@@ -21,7 +21,7 @@ export default function Hero() {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black" />
 
       {/* Hero Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
@@ -161,7 +161,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator with CSS animation */}
-      <div className="absolute bottom-[clamp(5rem,8vw,7.5rem)] left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-[clamp(2rem,4vw,7.5rem)] left-1/2 -translate-x-1/2 animate-bounce">
         <div className="flex h-10 w-5 items-start justify-center rounded-full border-2 border-white/30">
           <div className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-400" />
         </div>

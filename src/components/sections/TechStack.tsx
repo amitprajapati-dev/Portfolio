@@ -1,159 +1,132 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
-
-const techStacks = [
-  {
-    number: "01",
-    title: "FRONTEND",
-    items:
-      "React.js • Next.js • JavaScript • TypeScript • HTML5 • CSS3 • Tailwind CSS • Bootstrap",
-  },
-  {
-    number: "02",
-    title: "BACKEND",
-    items:
-      "Node.js • Express.js • REST APIs • Authentication • JWT • Sessions • Middleware",
-  },
-  {
-    number: "03",
-    title: "DATABASE",
-    items:
-      "MongoDB • Mongoose • MySQL • Database Design • CRUD Operations",
-  },
-  {
-    number: "04",
-    title: "PROGRAMMING",
-    items:
-      "JavaScript • TypeScript • Python • C • C++",
-  },
-  {
-    number: "05",
-    title: "TOOLS & WORKFLOW",
-    items:
-      "Git • GitHub • VS Code • Postman • Linux • npm • pnpm",
-  },
-  {
-    number: "06",
-    title: "CURRENTLY LEARNING",
-    items:
-      "Data Structures & Algorithms • System Design • Advanced Next.js • Scalable Backend Development",
-  },
-];
-
 export default function TechStack() {
-  const sectionRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "center center"],
-  });
-
-  const headingColor = useTransform(
-    scrollYProgress,
-    [0, 0.15, 0.3],
-    ["#ffffff", "#666666", "#000000"]
-  );
-
   return (
-    <section id="skills"
-      ref={sectionRef}
-      className="bg-white text-black min-h-screen py-24 overflow-hidden rounded-4xl"
+    <section
+      id="skills"
+      className="relative min-h-screen w-full overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
-          transition={{
-            duration: 1,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="mb-24"
-        >
-          <motion.h2
-            style={{
-              color: headingColor,
-            }}
-            className="text-center text-[clamp(4rem,10vw,9rem)] font-black uppercase leading-none"
-          >
-            TECH STACK
-          </motion.h2>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60" />
 
-          <p className="text-center mt-6 text-base md:text-lg text-zinc-600 max-w-2xl mx-auto">
-            Technologies, tools and frameworks I use to build modern,
-            scalable and high-performance web applications.
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 py-24 text-center">
+        {/* Small Heading */}
+        <div className="mb-6">
+          <p className="text-sm uppercase tracking-[0.4em] text-zinc-400">
+            MY EXPERTISE
           </p>
-        </motion.div>
 
-        {/* Stack List */}
-        <div className="space-y-10">
-          {techStacks.map((stack, index) => (
-            <motion.div
-              key={stack.number}
-              initial={{
-                opacity: 0,
-                y: 120,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: false,
-                amount: 0.3,
-              }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.05,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="border-b border-black/10 pb-10"
-            >
-              <div className="flex flex-col md:flex-row gap-8 md:gap-16">
-
-                {/* Number */}
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    x: -80,
-                    rotate: -10,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                    rotate: 0,
-                  }}
-                  viewport={{
-                    once: false,
-                  }}
-                  transition={{
-                    duration: 0.8,
-                  }}
-                  className="text-5xl md:text-7xl font-black text-zinc-400 min-w-[120px]"
-                >
-                  {stack.number}
-                </motion.div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <h3 className="text-2xl md:text-4xl font-black uppercase">
-                    {stack.title}
-                  </h3>
-
-                  <p className="mt-4 text-base md:text-lg leading-relaxed text-zinc-600 max-w-4xl">
-                    {stack.items}
-                  </p>
-                </div>
-
-              </div>
-            </motion.div>
-          ))}
+          <div className="mx-auto mt-3 h-[2px] w-24 bg-blue-500" />
         </div>
 
+        {/* Main Heading */}
+        <h2 className="text-5xl font-black uppercase text-white md:text-7xl lg:text-8xl">
+          TECH STACK
+        </h2>
+
+        {/* Description */}
+        <p className="mt-8 max-w-3xl text-base leading-8 text-zinc-300 md:text-lg">
+          Technologies I use to design, develop and deploy modern web
+          applications with performance, scalability and user experience in
+          mind.
+        </p>
+
+        {/* Tech Cards */}
+        <div className="mt-20 grid w-full max-w-6xl gap-8 md:grid-cols-3">
+          {/* Frontend */}
+          <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-blue-500/30 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
+            <h3 className="mb-6 text-3xl font-bold text-white">
+              Frontend
+            </h3>
+
+            <div className="space-y-3 text-zinc-300">
+              <p>React.js</p>
+              <p>Next.js</p>
+              <p>TypeScript</p>
+              <p>JavaScript</p>
+              <p>Tailwind CSS</p>
+              <p>Bootstrap</p>
+            </div>
+
+            <div className="mx-auto my-6 h-px w-full bg-white/10" />
+
+            <p className="text-sm leading-7 text-zinc-400">
+              Building responsive, fast and user-focused interfaces with modern
+              frontend technologies.
+            </p>
+          </div>
+
+          {/* Backend */}
+          <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-blue-500/30 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
+            <h3 className="mb-6 text-3xl font-bold text-white">
+              Backend
+            </h3>
+
+            <div className="space-y-3 text-zinc-300">
+              <p>Node.js</p>
+              <p>Express.js</p>
+              <p>REST APIs</p>
+              <p>JWT Authentication</p>
+              <p>Bcrypt</p>
+              <p>MVC Architecture</p>
+            </div>
+
+            <div className="mx-auto my-6 h-px w-full bg-white/10" />
+
+            <p className="text-sm leading-7 text-zinc-400">
+              Developing secure, scalable and maintainable server-side
+              applications.
+            </p>
+          </div>
+
+          {/* Database */}
+          <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-blue-500/30 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
+            <h3 className="mb-6 text-3xl font-bold text-white">
+              Database
+            </h3>
+
+            <div className="space-y-3 text-zinc-300">
+              <p>MongoDB</p>
+              <p>MySQL</p>
+              <p>Mongoose</p>
+              <p>Schema Design</p>
+              <p>Aggregation</p>
+              <p>Query Optimization</p>
+            </div>
+
+            <div className="mx-auto my-6 h-px w-full bg-white/10" />
+
+            <p className="text-sm leading-7 text-zinc-400">
+              Designing efficient database structures and managing application
+              data reliably.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Stats */}
+        <div className="mt-20 grid w-full max-w-4xl grid-cols-3 gap-4 md:gap-10">
+          <div>
+            <h4 className="text-4xl font-bold text-white">2+</h4>
+            <p className="mt-2 text-sm text-zinc-400">
+              Years Learning
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-4xl font-bold text-white">10+</h4>
+            <p className="mt-2 text-sm text-zinc-400">
+              Projects Built
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-4xl font-bold text-white">100%</h4>
+            <p className="mt-2 text-sm text-zinc-400">
+              Passion Driven
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

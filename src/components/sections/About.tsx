@@ -20,6 +20,7 @@ export default function About() {
 
       {/* black Glow */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/1 via-black/80 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/1 to-black/1" />
 
 
       {/* Content */}
@@ -89,7 +90,7 @@ export default function About() {
             {/* Reflection */}
             <div
               aria-hidden="true"
-              className="absolute top-[105%] left-0 w-full h-32 scale-y-[-1] opacity-15 blur-xs overflow-hidden pointer-events-none border-b border-white"
+              className="absolute top-[115%] left-0 w-full h-32 scale-y-[-1] opacity-100 blur-xs overflow-hidden pointer-events-none border-white"
             >
               <div className="grid grid-cols-3 gap-4 md:gap-8">
                 <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6">
