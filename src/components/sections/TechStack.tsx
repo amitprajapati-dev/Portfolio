@@ -2,21 +2,18 @@
 
 export default function TechStack() {
   return (
-    <section
-      id="skills"
-      className="relative min-h-screen w-full overflow-hidden"
-    >
+    <section id="skills" className="relative min-h-screen w-full overflow-hidden">
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/60"/>
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 py-24 text-center">
+        
         {/* Small Heading */}
         <div className="mb-6">
           <p className="text-sm uppercase tracking-[0.4em] text-zinc-400">
             MY EXPERTISE
           </p>
-
           <div className="mx-auto mt-3 h-[2px] w-24 bg-blue-500" />
         </div>
 
@@ -30,7 +27,7 @@ export default function TechStack() {
           Technologies I use to design, develop and deploy modern web
           applications with performance, scalability and user experience in
           mind.
-        </p>
+        </p> 
 
         {/* Tech Cards */}
         <div className="mt-20 grid w-full max-w-6xl gap-8 md:grid-cols-3">
