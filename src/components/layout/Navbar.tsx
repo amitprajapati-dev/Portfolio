@@ -86,10 +86,15 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        <div className="w-fit flex items-center gap-2 text-sm cursor-pointer max-sm:hidden">
+        <a
+          href="/Amit Prajapati.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-fit flex items-center gap-2 text-sm cursor-pointer max-sm:hidden hover:scale-105 transform transition-all duration-300 hover:-translate-y-1 hover:font-bold hover:text-blue-400"
+        >
           <FaCircle size={8} className="fill-blue-400 text-blue-400" />
           <span>RESUME</span>
-        </div>
+        </a>
 
         {/* Mobile Menu Button */}
         <button
