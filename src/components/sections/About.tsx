@@ -1,129 +1,152 @@
+// app/about/page.tsx
+"use client";
+
 import Image from "next/image";
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="relative min-h-[120vh] w-full overflow-hidden"
-    >
-      {/* Background */}
+    <section id="about" className="relative min-h-screen w-full overflow-hidden">
+      {/* Background Image */}
       <Image
-        src="/images/bg-image.png"
+        src="/images/boy.png"
         alt="About Background"
         fill
         priority
         className="object-cover"
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/20 to-black/60" />
 
-      {/* black Glow */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/1 via-black/80 to-black/80" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/1 to-black/1" />
+      {/* Dark Overlay – deep cinematic feel */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
 
+      {/* Subtle blue glow for atmosphere */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent" />
 
-      {/* Content */}
-      <div className="relative max-w-7xl z-10 pt-30 px-6 mx-auto min-h-screen flex items-center justify-end ">
-
-        <div className="relative max-w-4xl text-center">
-
-          {/* Small Heading */}
-          <div className="mb-5">
-            <p className="uppercase tracking-[0.4em] text-zinc-400 text-sm">
-              welcome
-            </p>
-            <div className="w-20 h-[2px] bg-blue-500 mx-auto mt-3" />
-          </div>
-
-          {/* Main Heading */}
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase text-white leading-none">
-            About me
-          </h2>
-
-          {/* Role */}
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm md:text-base uppercase tracking-wider text-zinc-300">
-            <span>Full Stack Developer</span>
-            <span className="text-blue-500">•</span>
-            <span>BCA Graduate</span>
-            <span className="text-blue-500">•</span>
-            <span>NIELIT A Level</span>
-          </div>
-
-          {/* Description */}
-          <p className="mt-8 text-base text-zinc-300 tracking-wider md:text-lg leading-8 max-w-3xl mx-auto">
-            I'm Amit Prajapati from New Delhi, a passionate Full Stack
-            Developer focused on building modern, scalable and immersive web
-            applications.
-            <br />
-            <br />
-            I work across the complete development stack — from crafting
-            responsive user interfaces with React, Next.js and Tailwind CSS to
-            developing secure backend systems, REST APIs, authentication and
-            database architecture using Node.js, Express, MongoDB and MySQL.
-            <br />
-            <br />
-            I enjoy solving real-world problems through code and continuously
-            improving my skills by building projects that combine performance,
-            clean design and user experience.
-          </p>
-
-          <div className="relative mt-14">
-            {/* Original Stats */}
-            <div className="grid grid-cols-3 gap-4 md:gap-8">
-              <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-white">10+</h3>
-                <p className="text-zinc-400 text-sm mt-2">Projects Built</p>
-              </div>
-
-              <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-white">Frontend</h3>
-                <p className="text-zinc-400 text-sm mt-2">React • Next.js</p>
-              </div>
-
-              <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-white">Backend</h3>
-                <p className="text-zinc-400 text-sm mt-2">Node • MongoDB</p>
-              </div>
+      {/* Content – right-aligned with glassmorphism card */}
+      <div className="relative z-10 flex min-h-screen flex-col items-end justify-center px-6 py-20 md:px-12 lg:px-20">
+        <div className="">
+          <div className="max-w-3xl w-full backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 lg:p-16 space-y-6">
+            {/* Small label */}
+            <div className="flex flex-col items-start gap-2">
+              <p className="text-sm font-light uppercase tracking-[0.3em] text-white/80">
+                ABOUT ME
+              </p>
+              <div className="h-[2px] w-8 bg-blue-500" />
             </div>
 
-            {/* Reflection */}
-            <div
-              aria-hidden="true"
-              className="absolute top-[115%] left-0 w-full h-32 scale-y-[-1] opacity-100 blur-xs overflow-hidden pointer-events-none border-white"
-            >
-              <div className="grid grid-cols-3 gap-4 md:gap-8">
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white">10+</h3>
-                  <p className="text-zinc-400 text-sm mt-2">Projects Built</p>
-                </div>
+            {/* Name heading */}
+            <h2 className="text-4xl font-black tracking-[0.05em] text-white md:text-5xl lg:text-6xl">
+              Amit Prajapati
+            </h2>
 
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white">Frontend</h3>
-                  <p className="text-zinc-400 text-sm mt-2">React • Next.js</p>
-                </div>
+            {/* Role line */}
+            <div className="flex flex-wrap items-center gap-2 text-sm font-medium tracking-wider text-white/90 md:text-base">
+              <span>FULL STACK DEVELOPER</span>
+              <span className="text-blue-400">•</span>
+              <span>BCA GRADUATE</span>
+              <span className="text-blue-400">•</span>
+              <span>NIELIT A LEVEL</span>
+            </div>
 
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white">Backend</h3>
-                  <p className="text-zinc-400 text-sm mt-2">Node • MongoDB</p>
-                </div>
+            {/* Description – refined and engaging */}
+            <div className="space-y-4 text-sm leading-relaxed text-white/70 md:text-base">
+              <p>
+                I&apos;m <span className="text-white font-medium">Amit Prajapati</span> from Delhi NCR, a Full Stack Developer
+                passionate about building <span className="text-white font-medium">modern, scalable</span> and
+                <span className="text-white font-medium"> immersive</span> web applications that solve real problems.
+              </p>
+              <p>
+                I work across the complete stack — from responsive UIs with React, Next.js and Tailwind CSS
+                to secure backend systems, REST APIs, authentication and databases using Node.js, Express,
+                MongoDB and MySQL.
+              </p>
+              <p>
+                I constantly learn and apply new technologies to build projects that combine performance,
+                clean architecture and great user experience.
+              </p>
+            </div>
+
+            {/* Info cards – refined glassmorphism */}
+            <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-3">
+              <div className="rounded-xl border border-white/10 bg-black/20 p-5 text-center backdrop-blur-sm transition hover:border-blue-500/40 hover:bg-white/5">
+                <h4 className="text-xs font-medium uppercase tracking-wider text-blue-400">
+                  Based In
+                </h4>
+                <p className="mt-2 text-base font-semibold text-white">Delhi NCR, India</p>
+                <p className="text-xs text-white/60">Near Gurugram</p>
               </div>
 
-              {/* Inner Glow in Reflection */}
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-20 bg-blue-500/20 blur-3xl rounded-full" />
+              <div className="rounded-xl border border-white/10 bg-black/20 p-5 text-center backdrop-blur-sm transition hover:border-blue-500/40 hover:bg-white/5">
+                <h4 className="text-xs font-medium uppercase tracking-wider text-blue-400">
+                  Education
+                </h4>
+                <p className="mt-2 text-base font-semibold text-white">BCA</p>
+                <p className="text-xs text-white/60">NIELIT A Level</p>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-black/20 p-5 text-center backdrop-blur-sm transition hover:border-blue-500/40 hover:bg-white/5">
+                <h4 className="text-xs font-medium uppercase tracking-wider text-blue-400">
+                  Focus
+                </h4>
+                <p className="mt-2 text-base font-semibold text-white">Full Stack</p>
+                <p className="text-xs text-white/60">Scalable web applications</p>
+              </div>
             </div>
+          </div>
+
+
+          {/* Personal Philosophy */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-center">
+
+            <div>
+              <h4 className="text-2xl font-bold text-white md:text-3xl">
+                Learn
+              </h4>
+              <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
+                Stay Curious
+              </p>
+            </div>
+
+            <span className="text-2xl text-blue-500">→</span>
+
+            <div>
+              <h4 className="text-2xl font-bold text-white md:text-3xl">
+                Code
+              </h4>
+              <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
+                Build Ideas
+              </p>
+            </div>
+
+            <span className="text-2xl text-blue-500">→</span>
+
+            <div>
+              <h4 className="text-2xl font-bold text-white md:text-3xl">
+                Coffee
+              </h4>
+              <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
+                Fuel Up ☕
+              </p>
+            </div>
+
+            <span className="text-2xl text-blue-500">→</span>
+
+            <div>
+              <h4 className="text-2xl font-bold text-white md:text-3xl">
+                Repeat
+              </h4>
+              <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
+                Keep Coding
+              </p>
+            </div>
+
           </div>
         </div>
       </div>
 
-
-
-
-
-
-
-      {/* Bottom Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/40 to-transparent" />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-black/60 to-transparent" />
     </section>
   );
 }
