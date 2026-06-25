@@ -1,10 +1,21 @@
 "use client";
+import Image from "next/image";
+import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma, FaNpm } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiExpress, SiMongodb, SiMysql, SiPostman, SiCloudinary, SiVercel, SiRender, SiRazorpay } from "react-icons/si";
+import TechCard from "../ui/TechCard";
 
 export default function TechStack() {
   return (
     <section id="skills" className="relative min-h-screen w-full overflow-hidden">
+      <Image
+        src="/images/tech-stack.png"
+        alt="About Background"
+        fill
+        priority
+        className="object-cover"
+      />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60"/>
+      <div className="absolute inset-0 bg-black/70"/>
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 py-24 text-center">
@@ -24,106 +35,207 @@ export default function TechStack() {
 
         {/* Description */}
         <p className="mt-8 max-w-3xl text-base leading-8 text-zinc-300 md:text-lg">
-          Technologies I use to design, develop and deploy modern web
-          applications with performance, scalability and user experience in
-          mind.
+          The technologies, tools and platforms I use to build fast,
+          scalable and production-ready web applications.
         </p> 
 
         {/* Tech Cards */}
-        <div className="mt-20 grid w-full max-w-6xl gap-8 md:grid-cols-3">
-          {/* Frontend */}
-          <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-blue-500/30 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
-            <h3 className="mb-6 text-3xl font-bold text-white">
-              Frontend
-            </h3>
+        <div className="mt-20 w-full overflow-x-auto scrollbar-hide scroll-smooth px-1 py-3">
+          <div className="flex min-w-max gap-6 snap-x snap-mandatory pb-4">
 
-            <div className="space-y-3 text-zinc-300">
-              <p>React.js</p>
-              <p>Next.js</p>
-              <p>TypeScript</p>
-              <p>JavaScript</p>
-              <p>Tailwind CSS</p>
-              <p>Bootstrap</p>
-            </div>
+            {/* Card 1 */}
+            <TechCard
+              title="Frontend"
+              description="Building responsive, accessible and high-performance user interfaces."
 
-            <div className="mx-auto my-6 h-px w-full bg-white/10" />
+              technologies={[
+                {
+                  name: "React.js",
+                  icon: <FaReact />,
+                },
+                {
+                  name: "Next.js",
+                  icon: <SiNextdotjs />,
+                },
+                {
+                  name: "TypeScript",
+                  icon: <SiTypescript />,
+                },
+                {
+                  name: "JavaScript",
+                  icon: <SiJavascript />,
+                },
+                {
+                  name: "Tailwind CSS",
+                  icon: <SiTailwindcss />,
+                },
+              ]}
+            />
 
-            <p className="text-sm leading-7 text-zinc-400">
-              Building responsive, fast and user-focused interfaces with modern
-              frontend technologies.
-            </p>
-          </div>
+            {/* Card 2 */}
+            <TechCard
+              title="Backend"
+              description="Creating secure APIs and scalable server-side applications."
 
-          {/* Backend */}
-          <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-blue-500/30 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
-            <h3 className="mb-6 text-3xl font-bold text-white">
-              Backend
-            </h3>
+              technologies={[
+                {
+                  name: "Node.js",
+                  icon: <FaNodeJs />,
+                },
+                {
+                  name: "Express.js",
+                  icon: <SiExpress />,
+                },
+                {
+                  name: "REST APIs",
+                  icon: <SiPostman />,
+                },
+                {
+                  name: "JWT Authentication",
+                  icon: <SiRazorpay />,
+                },
+                {
+                  name: "MVC Architecture",
+                  icon: <FaNodeJs />,
+                },
+              ]}
+            />
 
-            <div className="space-y-3 text-zinc-300">
-              <p>Node.js</p>
-              <p>Express.js</p>
-              <p>REST APIs</p>
-              <p>JWT Authentication</p>
-              <p>Bcrypt</p>
-              <p>MVC Architecture</p>
-            </div>
+            {/* Card 3 */}
+            <TechCard
+              title="Database"
+              description="Designing efficient database structures for reliable applications."
 
-            <div className="mx-auto my-6 h-px w-full bg-white/10" />
+              technologies={[
+                {
+                  name: "MongoDB",
+                  icon: <SiMongodb />,
+                },
+                {
+                  name: "MySQL",
+                  icon: <SiMysql />,
+                },
+                {
+                  name: "Mongoose",
+                  icon: <SiMongodb />,
+                },
+                {
+                  name: "Aggregation",
+                  icon: <SiMongodb />,
+                },
+                {
+                  name: "Schema Design",
+                  icon: <SiMysql />,
+                },
+              ]}
+            />
 
-            <p className="text-sm leading-7 text-zinc-400">
-              Developing secure, scalable and maintainable server-side
-              applications.
-            </p>
-          </div>
+            {/* Card 4 */}
+            <TechCard
+              title="Tools"
+              description="Using modern development tools to improve workflow and productivity."
 
-          {/* Database */}
-          <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-blue-500/30 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
-            <h3 className="mb-6 text-3xl font-bold text-white">
-              Database
-            </h3>
+              technologies={[
+                {
+                  name: "Git",
+                  icon: <FaGitAlt />,
+                },
+                {
+                  name: "GitHub",
+                  icon: <FaGithub />,
+                },
+                {
+                  name: "Postman",
+                  icon: <SiPostman />,
+                },
+                {
+                  name: "Cloudinary",
+                  icon: <SiCloudinary />,
+                },
+                {
+                  name: "npm",
+                  icon: <FaNpm />,
+                },
+              ]}
+            />
 
-            <div className="space-y-3 text-zinc-300">
-              <p>MongoDB</p>
-              <p>MySQL</p>
-              <p>Mongoose</p>
-              <p>Schema Design</p>
-              <p>Aggregation</p>
-              <p>Query Optimization</p>
-            </div>
+            {/* Card 5 */}
+            <TechCard
+              title="Deployment"
+              description="Deploying and maintaining production-ready full stack applications."
 
-            <div className="mx-auto my-6 h-px w-full bg-white/10" />
+              technologies={[
+                {
+                  name: "Vercel",
+                  icon: <SiVercel />,
+                },
+                {
+                  name: "Render",
+                  icon: <SiRender />,
+                },
+                {
+                  name: "GitHub",
+                  icon: <FaGithub />,
+                },
+                {
+                  name: "Environment Variables",
+                  icon: <FaNodeJs />,
+                },
+                {
+                  name: "Domain Configuration",
+                  icon: <SiVercel />,
+                },
+              ]}
+            />
 
-            <p className="text-sm leading-7 text-zinc-400">
-              Designing efficient database structures and managing application
-              data reliably.
-            </p>
           </div>
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-20 grid w-full max-w-4xl grid-cols-3 gap-4 md:gap-10">
-          <div>
-            <h4 className="text-4xl font-bold text-white">2+</h4>
-            <p className="mt-2 text-sm text-zinc-400">
-              Years Learning
-            </p>
-          </div>
+        <div className="mt-20 flex w-full max-w-5xl items-center justify-center gap-3 overflow-x-auto py-4 text-center md:gap-6">
+  <div>
+    <h4 className="text-2xl font-bold text-white md:text-3xl">Think</h4>
+    <p className="mt-2 text-sm text-zinc-400">
+      Understand the problem
+    </p>
+  </div>
 
-          <div>
-            <h4 className="text-4xl font-bold text-white">10+</h4>
-            <p className="mt-2 text-sm text-zinc-400">
-              Projects Built
-            </p>
-          </div>
+  <span className="text-2xl text-blue-500">→</span>
 
-          <div>
-            <h4 className="text-4xl font-bold text-white">100%</h4>
-            <p className="mt-2 text-sm text-zinc-400">
-              Passion Driven
-            </p>
-          </div>
-        </div>
+  <div>
+    <h4 className="text-2xl font-bold text-white md:text-3xl">Code</h4>
+    <p className="mt-2 text-sm text-zinc-400">
+      Build the solution
+    </p>
+  </div>
+
+  <span className="text-2xl text-blue-500">→</span>
+
+  <div>
+    <h4 className="text-2xl font-bold text-white md:text-3xl">Debug</h4>
+    <p className="mt-2 text-sm text-zinc-400">
+      Fix every issue
+    </p>
+  </div>
+
+  <span className="text-2xl text-blue-500">→</span>
+
+  <div>
+    <h4 className="text-2xl font-bold text-white md:text-3xl">Deploy</h4>
+    <p className="mt-2 text-sm text-zinc-400">
+      Ship to production
+    </p>
+  </div>
+
+  <span className="text-2xl text-blue-500">→</span>
+
+  <div>
+    <h4 className="text-2xl font-bold text-white md:text-3xl">Repeat</h4>
+    <p className="mt-2 text-sm text-zinc-400">
+      Keep improving
+    </p>
+  </div>
+</div>
       </div>
     </section>
   );
