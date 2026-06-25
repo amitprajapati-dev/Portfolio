@@ -7,9 +7,14 @@ import { FaGithub, FaLinkedin, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import { SiGmail, SiLeetcode } from "react-icons/si";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   // Form fields are empty for visitor to fill
+  const [isSending, setIsSending] = useState(false);
+
+  const [status, setStatus] = useState<"success" | "error" | null > (null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,12 +27,39 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In production, send to your backend
-    console.log("Form submitted:", formData);
-    alert("Thank you for reaching out! I'll get back to you soon.");
+
+    setIsSending(true);
+    setStatus(null);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      setStatus("success");
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    } finally {
+      setIsSending(false);
+    }
   };
+
 
   return (
     <section id="contact" className="relative min-h-screen bg-black py-20 px-4">
@@ -183,10 +215,26 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full rounded border border-blue-500/50 bg-white/5 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/10 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]"
+                disabled={isSending}
+                className={`w-full rounded border border-blue-500/50 px-6 py-3 text-sm font-medium text-white transition ${
+                  isSending
+                    ? "cursor-not-allowed bg-white/10 opacity-60"
+                    : "bg-white/5 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]"
+                }`}
               >
-                Send Message
+                {isSending ? "Sending..." : "Send Message"}
               </button>
+              {status === "success" && (
+                <p className="text-sm text-green-400">
+                  ✅ Thanks! Your message has been sent successfully.
+                </p>
+              )}
+
+              {status === "error" && (
+                <p className="text-sm text-red-400">
+                  ❌ Something went wrong. Please try again.
+                </p>
+              )}
             </form>
           </div>
         </div>
