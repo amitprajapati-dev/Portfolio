@@ -10,64 +10,70 @@ const projects = [
     description:
       "A complete e-commerce platform with real-time inventory, secure payments, JWT authentication, and an intuitive admin dashboard.",
     tech: ["React", "Node.js", "MongoDB", "Stripe", "JWT"],
-    demo: "#",
-    github: "#",
+    demo: "https://grocerio-beryl.vercel.app/",
+    github: "https://github.com/amit4353",
     image: "/projects-images/grocerio-home.jpeg",
-    image2: "/projects-images/grocerio-home.jpeg",
-    image3: "/projects-images/grocerio-home.jpeg",
+    image2: "/projects-images/grocerio-admin-page1.jpeg",
+    image3: "/projects-images/grocerio-products.jpeg",
   },
   {
     id: "02",
-    title: "Portfolio Website",
-    category: "Next.js & Tailwind CSS",
+    title: "Agency-AI Website",
+    category: "React.js & Tailwind CSS",
     description:
       "A modern, high‑performance portfolio with smooth animations, dark theme, and a fully responsive design built with Next.js 15 and Tailwind CSS.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    demo: "#",
-    github: "#",
-    image: "/projects-images/grocerio-home.jpeg",
-    image2: "/projects-images/grocerio-home.jpeg",
-    image3: "/projects-images/grocerio-home.jpeg",
+    demo: "https://agency-ai-phi-eight.vercel.app/",
+    github: "https://github.com/amit4353",
+    image: "/projects-images/acency-home.jpeg",
+    image2: "/projects-images/acency-work.jpeg",
+    image3: "/projects-images/acency-help.jpeg",
   },
   {
     id: "03",
-    title: "Authentication System",
-    category: "JWT & MongoDB",
+    title: "Movie Ticket book",
+    category: "React & Tailwind CSS",
     description:
       "A secure authentication service featuring JWT tokens, refresh tokens, role‑based access control, and session management with MongoDB.",
     tech: ["Node.js", "Express", "MongoDB", "JWT", "bcrypt"],
-    demo: "#",
-    github: "#",
-    image: "/projects-images/grocerio-home.jpeg",
-    image2: "/projects-images/grocerio-home.jpeg",
-    image3: "/projects-images/grocerio-home.jpeg",
+    demo: "https://quick-show-snowy-one.vercel.app/",
+    github: "https://github.com/amit4353",
+    image: "/projects-images/quick-show-home.jpeg",
+    image2: "/projects-images/quick-show-detail.jpeg",
+    image3: "/projects-images/quick-show-sheet.jpeg",
   },
   {
-    id: "04",
-    title: "Admin Dashboard",
-    category: "React & REST APIs",
-    description:
-      "A powerful admin panel with real‑time analytics, user management, data visualisation, and customisable widgets, powered by React and RESTful APIs.",
-    tech: ["React", "Context API", "Chart.js", "Express", "MySQL"],
-    demo: "#",
-    github: "#",
-    image: "/projects-images/grocerio-home.jpeg",
-    image2: "/projects-images/grocerio-home.jpeg",
-    image3: "/projects-images/grocerio-home.jpeg",
-  },
-  {
-    id: "05",
-    title: "Task Management App",
-    category: "Full Stack Project",
-    description:
-      "A collaborative task manager with real‑time updates, file attachments, team workspaces, and a clean, intuitive interface.",
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
-    demo: "#",
-    github: "#",
-    image: "/projects-images/grocerio-home.jpeg",
-    image2: "/projects-images/grocerio-home.jpeg",
-    image3: "/projects-images/grocerio-home.jpeg",
-  },
+  id: "00",
+  title: "Explore My GitHub",
+  category: "More Projects Available",
+  description:
+    "Want to see more? Explore my GitHub profile for additional MERN stack applications, React projects, REST APIs, backend services, coding challenges, and ongoing development work.",
+  tech: [
+    "MERN Stack",
+    "React",
+    "Node.js",
+    "MongoDB",
+    "Open Source",
+  ],
+  demo: "https://github.com/amit4353",
+  github: "https://github.com/amit4353",
+  image: "/projects-images/github-dashboard.jpeg",
+  image2: "/projects-images/github-name.jpeg",
+  image3: "/projects-images/github-activity.jpeg",
+}
+  // {
+  //   id: "05",
+  //   title: "Task Management App",
+  //   category: "Full Stack Project",
+  //   description:
+  //     "A collaborative task manager with real‑time updates, file attachments, team workspaces, and a clean, intuitive interface.",
+  //   tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
+  //   demo: "#",
+  //   github: "https://github.com/amit4353",
+  //   image: "/projects-images/grocerio-home.jpeg",
+  //   image2: "/projects-images/grocerio-home.jpeg",
+  //   image3: "/projects-images/grocerio-home.jpeg",
+  // },
 ];
 
 export default function Projects() {
@@ -102,7 +108,7 @@ export default function Projects() {
               className="sticky left-0 flex h-screen w-full items-center justify-center px-4 "
               style={{ top: `${topOffset}rem` }}
             >
-              <div className="relative w-full max-w-7xl overflow-hidden rounded-3xl border bg-black mt-20">
+              <div className="relative w-full max-w-7xl overflow-hidden rounded-3xl border bg-black mt-2">
                 {/* Subtle gradient accent */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5" />
 
@@ -122,6 +128,8 @@ export default function Projects() {
                     </div>
                     <a
                       href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="rounded-full border border-blue-500/50 bg-white/5 px-6 py-2 text-sm font-medium text-white transition hover:bg-white/10 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]"
                     >
                       LIVE PROJECT
@@ -181,12 +189,16 @@ export default function Projects() {
                     <div className="flex gap-3">
                       <a
                         href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="rounded-full border border-white/20 px-5 py-2 text-sm font-medium text-white transition hover:border-blue-400 hover:bg-blue-500/10"
                       >
                         Live Demo
                       </a>
                       <a
                         href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="rounded-full border border-white/20 px-5 py-2 text-sm font-medium text-white transition hover:border-blue-400 hover:bg-blue-500/10"
                       >
                         GitHub
