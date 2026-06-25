@@ -1,19 +1,20 @@
 // app/contact/page.tsx
 "use client";
 
-import { useState } from "react";
-import { CiMail, CiPhone } from "react-icons/ci";
-import { FaGithub, FaLinkedin, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin, FaPhoneAlt, FaWhatsapp, FaSpinner } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
-import { SiGmail, SiLeetcode } from "react-icons/si";
+import { SiGmail } from "react-icons/si";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   // Form fields are empty for visitor to fill
   const [isSending, setIsSending] = useState(false);
 
-  const [status, setStatus] = useState<"success" | "error" | null > (null);
+  const [status, setStatus] = useState<
+    "success" | "error" | null
+  >(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -21,10 +22,23 @@ export default function Contact() {
     message: "",
   });
 
+  useEffect(() => {
+    if (status) {
+      const timer = setTimeout(() => {
+        setStatus(null);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -53,7 +67,7 @@ export default function Contact() {
         message: "",
       });
     } catch (error) {
-      console.error(error);
+      console.error("EmailJS Error:", error);
       setStatus("error");
     } finally {
       setIsSending(false);
@@ -172,6 +186,7 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  disabled={isSending}
                   required
                   placeholder="John Doe"
                   className="mt-1 w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder-white/30 backdrop-blur-sm outline-none transition focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50"
@@ -190,6 +205,7 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  disabled={isSending}
                   required
                   placeholder="you@example.com"
                   className="mt-1 w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder-white/30 backdrop-blur-sm outline-none transition focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50"
@@ -208,6 +224,7 @@ export default function Contact() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
+                  disabled={isSending}
                   required
                   placeholder="Tell me about your project..."
                   className="mt-1 w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder-white/30 backdrop-blur-sm outline-none transition focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 resize-none"
@@ -222,17 +239,26 @@ export default function Contact() {
                     : "bg-white/5 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]"
                 }`}
               >
-                {isSending ? "Sending..." : "Send Message"}
+                {isSending ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <FaSpinner className="animate-spin" />
+                    Sending...
+                  </span>
+                ) : (
+                  "Send Message"
+                )}
               </button>
               {status === "success" && (
-                <p className="text-sm text-green-400">
-                  ✅ Thanks! Your message has been sent successfully.
+                <p className="text-sm leading-relaxed text-green-400">
+                  ✅ Thank you! Your message has been sent successfully.
+                  <br />
+                  I'll get back to you soon.
                 </p>
               )}
 
               {status === "error" && (
                 <p className="text-sm text-red-400">
-                  ❌ Something went wrong. Please try again.
+                  ❌ Unable to send your message. Please try again in a few moments.
                 </p>
               )}
             </form>
