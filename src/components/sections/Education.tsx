@@ -1,3 +1,8 @@
+import Image from "next/image";
+import { BsArrowRight } from "react-icons/bs";
+import { GiSparkles } from "react-icons/gi";
+import { MdQrCode2 } from "react-icons/md";
+
 export default function Education() {
   const education = [
     {
@@ -21,7 +26,7 @@ export default function Education() {
       institution:
         "National Institute of Electronics & Information Technology",
       period: "2023 - Present",
-      status: "Project Submission In Progress",
+      status: "Project Ongoing",
       description:
         "Completed coursework in Database Technologies, System Analysis & Design, Data Science using Python, Big Data Analytics, Web Technologies, and Software Development.",
     },
@@ -53,11 +58,41 @@ export default function Education() {
     "Strong Problem Solving Skills",
   ];
 
+  const AcquiredSkills = 
+  [
+    "Problem Solving",
+    "React.js",
+    "JavaScript",
+    "TypeScript",
+    "Next.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "MySQL",
+    "REST APIs",
+    "JWT Authentication",
+    "Tailwind CSS",
+    "Git & GitHub",
+    "Responsive Design",
+    "MVC Architecture",
+    "API Integration",
+  ]
+
   return (
     <section
       id="education"
       className="relative min-h-screen overflow-hidden bg-black py-24 text-white"
     >
+
+     <div
+      className="absolute inset-0 bg-repeat"
+      style={{
+        backgroundImage: "url('/images/roadmap.jpeg')",
+        backgroundSize: "1700px 1600px",
+      }}
+    ></div>
+
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/85 to-black/85" />
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[150px]" />
@@ -104,9 +139,15 @@ export default function Education() {
 
                 <div className="ml-12 w-full md:ml-0 md:w-[45%]">
                   <div className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
-                    <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
+                    <div className="flex justify-between items-center">
+                      <div className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
                       {item.period}
-                    </span>
+                      </div>
+                    
+                      <div className="rounded-full bg-white/10 px-3 py-1 text-sm text-zinc-300">
+                        {item.status}
+                      </div>
+                    </div>
 
                     <h3 className="mt-5 text-2xl font-bold">
                       {item.title}
@@ -116,9 +157,6 @@ export default function Education() {
                       {item.institution}
                     </p>
 
-                    <div className="mt-4 inline-flex rounded-full bg-white/10 px-3 py-1 text-sm text-zinc-300">
-                      {item.status}
-                    </div>
 
                     <p className="mt-5 leading-relaxed text-zinc-400">
                       {item.description}
@@ -151,6 +189,31 @@ export default function Education() {
           </div>
         </div>
 
+        {/* Skills Acquired */}
+        <div className="mt-32">
+          <div className="mb-12 text-center">
+            <h3 className="text-4xl font-bold text-white">
+              Skills Acquired
+            </h3>
+
+            <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
+              Practical skills and technologies gained through academic learning,
+              certifications, and real-world development projects.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            {AcquiredSkills.map((skill) => (
+              <div
+                key={skill}
+                className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-5 py-3 text-sm font-medium text-cyan-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/20 hover:shadow-[0_0_25px_rgba(34,211,238,0.2)]"
+              >
+                {skill}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Certifications */}
         <div className="mt-32">
           <div className="mb-12 text-center">
@@ -164,14 +227,14 @@ export default function Education() {
                 className="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/30 hover:bg-white/10"
               >
                 <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs uppercase tracking-wider text-cyan-300">
-                  Certification
+                  Certified
                 </div>
 
                 <h4 className="text-2xl font-bold">{item.title}</h4>
 
                 <p className="mt-2 text-blue-300">{item.issuer}</p>
 
-                <p className="mt-5 leading-relaxed text-zinc-400">
+                <p className="mt-2 leading-relaxed text-zinc-400">
                   {item.description}
                 </p>
               </div>
@@ -180,10 +243,14 @@ export default function Education() {
         </div>
 
         {/* Bottom Quote */}
-        <div className="mt-32 text-center">
+        <div className="mt-25 text-center">
           <div className="mx-auto max-w-3xl rounded-[32px] border border-white/10 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 p-10 backdrop-blur-xl">
-            <h3 className="text-3xl font-bold">
-              Continuous Learning Never Stops
+            <h3 className="flex items-center justify-center gap-3 text-3xl font-bold">
+              <span>Always Learning</span>
+
+              <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_12px_#22d3ee]" />
+
+              <span>Always Building</span>
             </h3>
 
             <p className="mt-5 text-zinc-400">
