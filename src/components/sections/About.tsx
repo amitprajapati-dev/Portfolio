@@ -8,7 +8,7 @@ export default function About() {
     <section id="about" className="relative min-h-screen w-full overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/images/boy.png"
+        src="/images/about-bg.jpeg"
         alt="About Background"
         fill
         priority
@@ -24,7 +24,7 @@ export default function About() {
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent" />
 
       {/* Content – right-aligned with glassmorphism card */}
-      <div className="relative z-10 flex min-h-screen flex-col items-end justify-center px-6 py-20 md:px-12 lg:px-20">
+      <div className="relative z-10 flex min-h-screen flex-col items-end justify-center px-6 py-10 md:px-12 lg:px-20">
         <div className="">
           <div className="max-w-3xl w-full backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 lg:p-16 space-y-6">
             {/* Small label */}
@@ -52,7 +52,7 @@ export default function About() {
             {/* Description – refined and engaging */}
             <div className="space-y-4 text-sm leading-relaxed text-white/70 md:text-base">
               <p>
-                I&apos;m <span className="text-white font-medium">Amit Prajapati</span> from Delhi NCR, a Full Stack Developer
+                I&apos;m <span className="text-white font-medium">Amit Prajapati</span> from New Delhi, a Full Stack Developer
                 passionate about building <span className="text-white font-medium">modern, scalable</span> and
                 <span className="text-white font-medium"> immersive</span> web applications that solve real problems.
               </p>
@@ -97,10 +97,10 @@ export default function About() {
 
 
           {/* Personal Philosophy */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-center">
+          <div className="mt-15 flex flex-wrap items-center justify-center gap-3 text-center">
 
             <div>
-              <h4 className="text-2xl font-bold text-white md:text-3xl">
+              <h4 className="text-xl font-bold text-white md:text-2xl">
                 Learn
               </h4>
               <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
@@ -111,7 +111,7 @@ export default function About() {
             <span className="text-2xl text-blue-500">→</span>
 
             <div>
-              <h4 className="text-2xl font-bold text-white md:text-3xl">
+              <h4 className="text-2xl font-bold text-white md:text-2xl">
                 Code
               </h4>
               <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
@@ -122,7 +122,7 @@ export default function About() {
             <span className="text-2xl text-blue-500">→</span>
 
             <div>
-              <h4 className="text-2xl font-bold text-white md:text-3xl">
+              <h4 className="text-2xl font-bold text-white md:text-2xl">
                 Coffee
               </h4>
               <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
@@ -133,7 +133,7 @@ export default function About() {
             <span className="text-2xl text-blue-500">→</span>
 
             <div>
-              <h4 className="text-2xl font-bold text-white md:text-3xl">
+              <h4 className="text-2xl font-bold text-white md:text-2xl">
                 Repeat
               </h4>
               <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
