@@ -5,37 +5,39 @@ import Image from "next/image";
 const projects = [
   {
     id: "01",
-    title: "Scatch E-Commerce",
+    title: "Grocerio",
     category: "Full Stack MERN Application",
     description:
-      "A complete e-commerce platform with real-time inventory, secure payments, JWT authentication, and an intuitive admin dashboard.",
-    tech: ["React", "Node.js", "MongoDB", "Stripe", "JWT"],
+      "A full-stack e-commerce platform with secure authentication, product management, shopping cart, order processing, and an intuitive admin dashboard built for a seamless shopping experience.",
+    tech: ["React", "Node.js", "Express.js", "MySQL", "JWT"],
     demo: "https://grocerio-beryl.vercel.app/",
     github: "https://github.com/amit4353",
     image: "/projects-images/grocerio-home.jpeg",
-    image2: "/projects-images/grocerio-admin-page1.jpeg",
+    image2: "/projects-images/grocerio-admin-page.jpeg",
     image3: "/projects-images/grocerio-products.jpeg",
   },
+
   {
     id: "02",
-    title: "Agency-AI Website",
-    category: "React.js & Tailwind CSS",
+    title: "Agency AI",
+    category: "Modern Marketing Page",
     description:
-      "A modern, high‑performance portfolio with smooth animations, dark theme, and a fully responsive design built with Next.js 15 and Tailwind CSS.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "A modern AI agency website built with React and Tailwind CSS featuring responsive layouts, reusable components, smooth user interactions, and a clean, professional interface.",
+    tech: ["React.js", "Tailwind CSS", "JavaScript", "Responsive Design"],
     demo: "https://agency-ai-phi-eight.vercel.app/",
     github: "https://github.com/amit4353",
     image: "/projects-images/acency-home.jpeg",
     image2: "/projects-images/acency-work.jpeg",
     image3: "/projects-images/acency-help.jpeg",
   },
+
   {
     id: "03",
-    title: "Movie Ticket book",
-    category: "React & Tailwind CSS",
+    title: "QuickShow",
+    category: "Movie Booking Interface",
     description:
-      "A secure authentication service featuring JWT tokens, refresh tokens, role‑based access control, and session management with MongoDB.",
-    tech: ["Node.js", "Express", "MongoDB", "JWT", "bcrypt"],
+      "A responsive movie ticket booking interface built with React and Tailwind CSS featuring movie listings, show details, seat selection, and a smooth user experience.",
+    tech: ["React.js", "Tailwind CSS", "JavaScript", "Responsive Design"],
     demo: "https://quick-show-snowy-one.vercel.app/",
     github: "https://github.com/amit4353",
     image: "/projects-images/quick-show-home.jpeg",
@@ -79,6 +81,15 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="relative bg-black py-20">
+      {/* <Image
+        src="/images/project-bg.png"
+        alt="About Background"
+        fill
+        priority
+        className="object-fill"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/20 to-black/60" /> */}
+
       {/* Section Header */}
       <div className="relative z-10 mb-16 text-center">
         {/* <div className="absolute inset-0 bg-gradient-to-b from-black via-black/1 to-black" /> */}
