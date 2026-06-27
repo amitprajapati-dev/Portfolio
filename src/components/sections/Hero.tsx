@@ -2,14 +2,13 @@
 
 import { FaGithub } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
-import { FaTwitter } from "react-icons/fa"
 import { FaWhatsapp } from "react-icons/fa"
 import { SiGmail } from "react-icons/si"
 import { SiLeetcode } from "react-icons/si";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section id="home" className="relative h-screen w-full overflow-hidden">
       {/* Video Background */}
       <video
         src="/videos/background-video.mp4"
@@ -21,7 +20,7 @@ export default function Hero() {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black" />
 
       {/* Hero Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
@@ -49,14 +48,14 @@ export default function Hero() {
 
           {/* Description */}
           <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-white/70 md:text-base">
-            Passionate about crafting modern web applications, solving real-world problems and continuously learning new technologies.
+            Passionate about crafting modern web applications, solving real-world problems and continuously learning new technologies. <br /> And Data Structure & Algorithm
           </p>
 
           {/* Download CV Button */}
           
           <div className="flex gap-5">
             <a
-              href="/myresume.pdf"
+              href="/Amit Prajapati.pdf"
               download="Amit_Prajapati_Resume.pdf"
               className="group mt-8 flex items-center gap-3 rounded border border-blue-500/50 bg-white/5 px-8 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-blue-400/70 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(59,130,246,0.25)]"
             >
@@ -113,7 +112,7 @@ export default function Hero() {
           {/* social links */}
           <div className="pt-10 flex gap-6 text-2xl text-white/80">
             <a
-              href="https://github.com/amit4353"
+              href="https://github.com/amitprajapati-dev"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
@@ -122,7 +121,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/amit-prajapati-189256330"
+              href="https://www.linkedin.com/in/amitprajapati-dev"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
@@ -131,7 +130,7 @@ export default function Hero() {
             </a>
  
             <a
-              href="https://leetcode.com/u/amitprajapati012/"
+              href="https://leetcode.com/u/amitprajapati-dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
@@ -159,9 +158,10 @@ export default function Hero() {
 
         </div>
       </div>
+      <div className="pt-10 pb-12 flex gap-6 text-2xl text-white/80"></div>
 
       {/* Scroll Indicator with CSS animation */}
-      <div className="absolute bottom-[clamp(2rem,4vw,7.5rem)] left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 md:bottom-10 lg:bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="flex h-10 w-5 items-start justify-center rounded-full border-2 border-white/30">
           <div className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-400" />
         </div>
