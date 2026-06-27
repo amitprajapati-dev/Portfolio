@@ -1,7 +1,33 @@
 "use client";
 import Image from "next/image";
-import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma, FaNpm } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiExpress, SiMongodb, SiMysql, SiPostman, SiCloudinary, SiVercel, SiRender, SiRazorpay } from "react-icons/si";
+import {
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaGithub,
+  FaNpm,
+  FaDocker,
+} from "react-icons/fa";
+
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiPostman,
+  SiCloudinary,
+  SiVercel,
+  SiRender,
+} from "react-icons/si";
+
+import { BiLogoPostgresql } from "react-icons/bi";
+import { TbSchema, TbVariable } from "react-icons/tb";
+import { MdOutlineDomain } from "react-icons/md";
+import { PiTreeStructureFill } from "react-icons/pi";
+import { HiOutlineLockClosed } from "react-icons/hi";
 import TechCard from "../ui/TechCard";
 
 export default function TechStack() {
@@ -15,8 +41,8 @@ export default function TechStack() {
         className="object-cover"
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/70"/>
-
+      {/* <div className="absolute inset-0 bg-black/70"/> */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/70 to-black/80" />
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 py-24 text-center">
         
@@ -92,11 +118,11 @@ export default function TechStack() {
                 },
                 {
                   name: "JWT Authentication",
-                  icon: <SiRazorpay />,
+                  icon: <HiOutlineLockClosed />,
                 },
                 {
                   name: "MVC Architecture",
-                  icon: <FaNodeJs />,
+                  icon: <PiTreeStructureFill />,
                 },
               ]}
             />
@@ -116,16 +142,16 @@ export default function TechStack() {
                   icon: <SiMysql />,
                 },
                 {
-                  name: "Mongoose",
-                  icon: <SiMongodb />,
+                  name: "PostgreSQL",
+                  icon: <BiLogoPostgresql />,
                 },
                 {
-                  name: "Aggregation",
-                  icon: <SiMongodb />,
+                  name: "Mongoose",
+                  icon: <PiTreeStructureFill />,
                 },
                 {
                   name: "Schema Design",
-                  icon: <SiMysql />,
+                  icon: <TbSchema />,
                 },
               ]}
             />
@@ -174,16 +200,16 @@ export default function TechStack() {
                   icon: <SiRender />,
                 },
                 {
-                  name: "GitHub",
-                  icon: <FaGithub />,
+                  name: "Docker",
+                  icon: <FaDocker />,
                 },
                 {
                   name: "Environment Variables",
-                  icon: <FaNodeJs />,
+                  icon: <TbVariable />,
                 },
                 {
                   name: "Domain Configuration",
-                  icon: <SiVercel />,
+                  icon: <MdOutlineDomain />,
                 },
               ]}
             />
@@ -192,50 +218,50 @@ export default function TechStack() {
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-20 flex w-full max-w-5xl items-center justify-center gap-3 overflow-x-auto py-4 text-center md:gap-6">
-  <div>
-    <h4 className="text-2xl font-bold text-white md:text-3xl">Think</h4>
-    <p className="mt-2 text-sm text-zinc-400">
-      Understand the problem
-    </p>
-  </div>
+        <div className="mt-10 flex w-full max-w-5xl items-center justify-center gap-3 overflow-x-auto pt-10 text-center md:gap-6">
+          <div>
+            <h4 className="text-2xl font-bold text-white md:text-3xl">Think</h4>
+            <p className="mt-2 text-sm text-zinc-400">
+              Understand the problem
+            </p>
+          </div>
 
-  <span className="text-2xl text-blue-500">→</span>
+          <span className="text-2xl text-blue-500">→</span>
 
-  <div>
-    <h4 className="text-2xl font-bold text-white md:text-3xl">Code</h4>
-    <p className="mt-2 text-sm text-zinc-400">
-      Build the solution
-    </p>
-  </div>
+          <div>
+            <h4 className="text-2xl font-bold text-white md:text-3xl">Code</h4>
+            <p className="mt-2 text-sm text-zinc-400">
+              Build the solution
+            </p>
+          </div>
 
-  <span className="text-2xl text-blue-500">→</span>
+          <span className="text-2xl text-blue-500">→</span>
 
-  <div>
-    <h4 className="text-2xl font-bold text-white md:text-3xl">Debug</h4>
-    <p className="mt-2 text-sm text-zinc-400">
-      Fix every issue
-    </p>
-  </div>
+          <div>
+            <h4 className="text-2xl font-bold text-white md:text-3xl">Debug</h4>
+            <p className="mt-2 text-sm text-zinc-400">
+              Fix every issue
+            </p>
+          </div>
 
-  <span className="text-2xl text-blue-500">→</span>
+          <span className="text-2xl text-blue-500">→</span>
 
-  <div>
-    <h4 className="text-2xl font-bold text-white md:text-3xl">Deploy</h4>
-    <p className="mt-2 text-sm text-zinc-400">
-      Ship to production
-    </p>
-  </div>
+          <div>
+            <h4 className="text-2xl font-bold text-white md:text-3xl">Deploy</h4>
+            <p className="mt-2 text-sm text-zinc-400">
+              Ship to production
+            </p>
+          </div>
 
-  <span className="text-2xl text-blue-500">→</span>
+          <span className="text-2xl text-blue-500">→</span>
 
-  <div>
-    <h4 className="text-2xl font-bold text-white md:text-3xl">Repeat</h4>
-    <p className="mt-2 text-sm text-zinc-400">
-      Keep improving
-    </p>
-  </div>
-</div>
+          <div>
+            <h4 className="text-2xl font-bold text-white md:text-3xl">Repeat</h4>
+            <p className="mt-2 text-sm text-zinc-400">
+              Keep improving
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
