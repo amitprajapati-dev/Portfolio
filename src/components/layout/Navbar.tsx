@@ -160,8 +160,16 @@ export default function Navbar() {
           </Link>
 
           <div className="transition-colors duration-300 hover:text-blue-300 cursor-pointer">
+            <a
+            href="/Amit Prajapati.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
             <span>RESUME</span>
+          </a>
           </div>
+
+          
           
         </div>
       </nav>
